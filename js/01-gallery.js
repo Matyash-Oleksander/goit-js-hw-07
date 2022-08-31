@@ -34,22 +34,13 @@ function createImageCard(galleryItems) {
 
 function onGalleryItemClick(event) {
   event.preventDefault();
-  // console.log(event.target);
   const isOriginalUrl = event.target.classList.contains("gallery__image");
-  // console.log(isOriginalUrl);
 
   if (!isOriginalUrl) {
     return;
   }
-  // console.log(event.target.dataset);
-  // console.log(event.target.alt);
-  // console.log(event.target.dataset.src);
 
   const swatchUrlEl = event.target.dataset.source;
-
-  // import * as basicLightbox from "basiclightbox";
-
-  // console.log(swatchUrlEl);
 
   /* 3. Заміна значения атрибута src элемента <img> в модальному вікні перед відкриттям.
    */
@@ -59,7 +50,7 @@ function onGalleryItemClick(event) {
   );
   instance.show();
 
-  /* 4. Закрытие модального она по "ESC"
+  /* 4. Закриття модального вікна по "ESC"
    */
   window.addEventListener("keydown", onEscKeyPress);
 
@@ -67,6 +58,7 @@ function onGalleryItemClick(event) {
     const ESC_KEY_CODE = "Escape";
     if (event.code === ESC_KEY_CODE) {
       instance.close();
+      // console.log("Close big IMG");
       window.removeEventListener("keydown", onEscKeyPress);
     }
   }
